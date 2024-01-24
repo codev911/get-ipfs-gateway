@@ -1,5 +1,5 @@
 {
-  "name": "get-ipfs-gateway",
+  "name": "public-ipfs-gateway",
   "description": "Get Public IPFS gateway url easily",
   "author": "codev911",
   "version": "1.0.0",
@@ -28,13 +28,12 @@
   },
   "dependencies": {},
   "keywords": [
-    "get-ipfs-gateway",
     "ipfs-gateway",
     "public-ipfs-gateway",
     "ipfs"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codev911/get-ipfs-gateway.git"
+    "url": "git+https://github.com/codev911/public-ipfs-gateway.git"
   }
 }
