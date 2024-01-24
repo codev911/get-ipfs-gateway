@@ -19,7 +19,7 @@ Get Public IPFS gateway url easily.
     const url = 'ipfs://bafybeiged4aroumss7u646yl5rzq5xawlvni7velqmwgau6jhxqcpgtf44/metamask-wallet.svg';
 
     // example function for test
-    test(){
+    function test(){
         console.log(getAllGateway(url));
     }
     test();
@@ -32,7 +32,7 @@ Get Public IPFS gateway url easily.
 	// ]
 ```
 
-### B. getBestRpcByChainId
+### B. getLiveGateway
 ```JavaScript
     import { getLiveGateway } from 'public-ipfs-gateway';
     // if use commonjs use this :
@@ -42,7 +42,7 @@ Get Public IPFS gateway url easily.
     const url = 'ipfs://bafybeiged4aroumss7u646yl5rzq5xawlvni7velqmwgau6jhxqcpgtf44/metamask-wallet.svg';
 
     // example function for test
-    async test(){
+    async function test(){
         console.log(await getLiveGateway(url));
     }
     test();
