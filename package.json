@@ -1,0 +1,16 @@
+{
+  "name": "get-ipfs-gateway",
+  "description": "Get Public IPFS gateway url easily",
+  "author": "codev911",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "format": "npx prettier --write lib/*.ts"
+  },
+  "dependencies": {
+    "axios": "^1.6.5",
+    "prettier": "^3.2.4",
+    "tsc": "^2.0.4"
+  }
+}
