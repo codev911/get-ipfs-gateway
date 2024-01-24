@@ -26,5 +26,15 @@
     "tsup": "^8.0.1",
     "typescript": "^5.3.3"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "keywords": [
+    "get-ipfs-gateway",
+    "ipfs-gateway",
+    "public-ipfs-gateway",
+    "ipfs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codev911/get-ipfs-gateway.git"
+  }
 }
