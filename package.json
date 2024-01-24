@@ -2,10 +2,10 @@
   "name": "public-ipfs-gateway",
   "description": "Get Public IPFS gateway url easily",
   "author": "codev911",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "./dist/index.js",
-  "browser": "./dist/index.global.js",
-  "module": "./dist/index.mjs",
+  "browser": "./dist/iife/index.js",
+  "module": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"

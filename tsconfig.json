@@ -2,7 +2,8 @@
     "compilerOptions": {
         "rootDir": ".",
 		"sourceMap": true,
-		"declaration": false,
+		"declaration": true,
+		"declarationDir": "dist",
 		"moduleResolution": "Node",
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
@@ -16,7 +17,11 @@
 		"paths": {
 			"axios": ["./node_modules/axios"],
             "tslib": ["./node_modules/tslib"]
-		}
+		},
+		"typeRoots": [
+			"./node_modules/@types",
+			"./types/",
+		]
 	},
 	"exclude": ["node_modules"],
 }
