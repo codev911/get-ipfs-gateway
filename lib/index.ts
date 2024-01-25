@@ -48,13 +48,7 @@ export const getLiveGateway = async (
 		}
 
 		finalUrl.push(url);
-		listLoop.push(
-			axios({
-				method: 'head',
-				url: url,
-				timeout: timeout !== undefined && timeout !== null ? timeout : 1500,
-			})
-		);
+		listLoop.push(axios.head(url, { timeout: timeout || 5000 }));
 	});
 
 	const result = await Promise.allSettled(listLoop);
