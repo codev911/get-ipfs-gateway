@@ -1,8 +1,9 @@
 import { getLiveGateway } from '../lib';
 
-test('get live gateway urls from ipfs url protocol', () => {
+test('get live gateway urls from ipfs url protocol', async () => {
 	const url =
 		'ipfs://bafybeiged4aroumss7u646yl5rzq5xawlvni7velqmwgau6jhxqcpgtf44/metamask-wallet.svg';
-	const result = getLiveGateway(url);
-	expect(result).not.toBe(url);
+	const result = await getLiveGateway(url);
+	console.log(result);
+	await expect(await result).not.toBe(url);
 });
