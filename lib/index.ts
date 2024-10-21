@@ -3,15 +3,10 @@ import https from 'https';
 
 const gateways: string[] = [
 	'https://ipfs.io/ipfs/{hash}',
-	'https://cloudflare-ipfs.com/ipfs/{hash}',
-	'https://gateway.ipfs.io/ipfs/{hash}',
-	'https://ipfs.runfission.com/ipfs/{hash}',
 	'https://{hash}.ipfs.dweb.link',
 	'https://{hash}.ipfs.nftstorage.link',
 	'https://{hash}.ipfs.w3s.link',
-	'https://{hash}.ipfs.cf-ipfs.com',
 	'https://{hash}.ipfs.4everland.io',
-	'https://{hash}.ipfs.gw3.io',
 	'https://gateway.pinata.cloud/ipfs/{hash}',
 	'https://ipfs.quicknode.com/ipfs/{hash}',
 ];
