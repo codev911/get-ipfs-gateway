@@ -1,4 +1,5 @@
 import axios from 'axios';
+import https from 'https';
 
 const gateways: string[] = [
 	'https://ipfs.io/ipfs/{hash}',
@@ -11,7 +12,13 @@ const gateways: string[] = [
 	'https://{hash}.ipfs.cf-ipfs.com',
 	'https://{hash}.ipfs.4everland.io',
 	'https://{hash}.ipfs.gw3.io',
+	'https://gateway.pinata.cloud/ipfs/{hash}',
+	'https://ipfs.quicknode.com/ipfs/{hash}',
 ];
+
+const agent = new https.Agent({
+	rejectUnauthorized: true,
+});
 
 export const getAllGateway = (ipfsUrl: string): string[] => {
 	const finalUrl: string[] = [];
@@ -31,10 +38,10 @@ export const getAllGateway = (ipfsUrl: string): string[] => {
 	return finalUrl;
 };
 
-export const getLiveGateway = async (
+export const getAllLiveGateway = async (
 	ipfsUrl: string,
 	timeout?: number
-): Promise<string> => {
+): Promise<string[]> => {
 	const listLoop: unknown[] = [];
 	const finalUrl: string[] = [];
 	const getHash = ipfsUrl.replace('ipfs://', '');
@@ -48,7 +55,9 @@ export const getLiveGateway = async (
 		}
 
 		finalUrl.push(url);
-		listLoop.push(axios.head(url, { timeout: timeout || 5000 }));
+		listLoop.push(
+			axios.head(url, { httpsAgent: agent, timeout: timeout || 3000 })
+		);
 	});
 
 	const result = await Promise.allSettled(listLoop);
@@ -59,6 +68,17 @@ export const getLiveGateway = async (
 			fullfilled.push(finalUrl[index]);
 		}
 	}
+
+	return fullfilled;
+};
+
+export const getLiveGateway = async (
+	ipfsUrl: string,
+	timeout?: number
+): Promise<string> => {
+	const finalUrl = getAllGateway(ipfsUrl);
+	const rto = timeout || 5000;
+	const fullfilled: string[] = await getAllLiveGateway(ipfsUrl, rto);
 
 	if (fullfilled.length > 0) {
 		return fullfilled[0];
