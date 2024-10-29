@@ -63,8 +63,8 @@ export const getAllLiveGateway = async (
 	const fullfilled: string[] = [];
 
 	for (let index = 1; index < result.length; index++) {
-		if (result[index - 1].status === 'fulfilled') {
-			fullfilled.push(finalUrl[index]);
+		if (result[index].status === 'fulfilled') {
+			fullfilled.push(finalUrl[index - 1]);
 		}
 	}
 
