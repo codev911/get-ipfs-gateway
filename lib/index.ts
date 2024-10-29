@@ -11,10 +11,6 @@ const gateways: string[] = [
 	'https://ipfs.quicknode.com/ipfs/{hash}',
 ];
 
-const agent = new https.Agent({
-	rejectUnauthorized: true,
-});
-
 export const getAllGateway = (ipfsUrl: string): string[] => {
 	const finalUrl: string[] = [];
 	const getHash = ipfsUrl.replace('ipfs://', '');
@@ -51,7 +47,7 @@ export const getAllLiveGateway = async (
 
 		finalUrl.push(url);
 		listLoop.push(
-			axios.head(url, { httpsAgent: agent, timeout: timeout || 3000 })
+			axios.head(url, { timeout: timeout || 3000 })
 		);
 	});
 
