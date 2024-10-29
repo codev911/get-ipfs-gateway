@@ -36,7 +36,15 @@ export const getAllLiveGateway = async (
 	const listLoop: unknown[] = [];
 	const finalUrl: string[] = [];
 	const getHash = ipfsUrl.replace('ipfs://', '');
+	const dataHash = getHash.split('/');
 
+	let urlGet = gateways[0].replace('{hash}', dataHash[0]);
+
+	for (let index = 1; index < dataHash.length; index++) {
+		urlGet = urlGet + '/' + dataHash[index];
+	}
+
+	listLoop.push(axios.get(urlGet, { timeout: 3000 }));
 	gateways.forEach(async item => {
 		const dataHash = getHash.split('/');
 		let url = item.replace('{hash}', dataHash[0]);
