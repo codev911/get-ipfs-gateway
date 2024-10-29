@@ -62,7 +62,7 @@ export const getAllLiveGateway = async (
 	const result = await Promise.allSettled(listLoop);
 	const fullfilled: string[] = [];
 
-	for (let index = 0; index < result.length; index++) {
+	for (let index = 1; index < result.length; index++) {
 		if (result[index].status === 'fulfilled') {
 			fullfilled.push(finalUrl[index]);
 		}
